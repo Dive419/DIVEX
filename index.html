@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kwamamaza Online |Kwamamaza ubucuruzi bwawe</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+/* HEADER */
+
+header {
+  background: #101828;
+  color: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #38bdf8;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* HERO */
+
+.hero {
+  padding: 90px 7%;
+  background: linear-gradient(135deg, #101828, #164e86);
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero h1 span {
+  color: #38bdf8;
+}
+
+.hero p {
+  margin: 20px auto;
+  max-width: 600px;
+  line-height: 1.8;
+  color: #dbeafe;
+}
+
+.btn {
+  display: inline-block;
+  background: #0284c7;
+  color: white;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.btn:hover {
+  background: #0369a1;
+}
+
+.btn-white {
+  background: white;
+  color: #164e86;
+}
+
+/* GENERAL */
+
+section {
+  padding: 65px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.section-title p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* SEARCH */
+
+.search-box {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* CATEGORIES */
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.category {
+  padding: 11px 20px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.category.active,
+.category:hover {
+  background: #0284c7;
+  color: white;
+  border-color: #0284c7;
+}
+
+/* ADS */
+
+.ads-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.ad-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
+}
+
+.ad-card:hover {
+  transform: translateY(-5px);
+}
+
+.ad-image {
+  height: 190px;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+}
+
+.ad-content {
+  padding: 20px;
+}
+
+.ad-content h3 {
+  margin-bottom: 10px;
+}
+
+.ad-content p {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.ad-category {
+  color: #0284c7;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.ad-price {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.ad-content a {
+  display: inline-block;
+  background: #0284c7;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.empty {
+  text-align: center;
+  padding: 30px;
+  color: #64748b;
+  display: none;
+}
+
+/* POST AD FORM */
+
+.form-section {
+  background: #eaf4ff;
+}
+
+.form-container {
+  max-width: 650px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0 18px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+.form-container label {
+  font-weight: bold;
+}
+
+.form-container textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.form-container button {
+  width: 100%;
+}
+
+/* ABOUT */
+
+.about {
+  text-align: center;
+  background: white;
+}
+
+.about p {
+  max-width: 750px;
+  margin: auto;
+  color: #64748b;
+  line-height: 1.9;
+}
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+  background: #101828;
+  color: white;
+}
+
+.contact p {
+  margin: 15px;
+  color: #cbd5e1;
+}
+
+/* FOOTER */
+
+footer {
+  background: #080f1c;
+  color: white;
+  text-align: center;
+  padding: 22px;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .ads-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .ads-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 65px 5%;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  section {
+    padding: 45px 5%;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="logo">
+    Kwamamaza <span>Online</span>
+  </div>
+
+  <nav>
+    <a href="#home">Ahabanza</a>
+    <a href="#ads">Amatangazo</a>
+    <a href="#post">Tanga itangazo</a>
+    <a href="#about">Ibitwerekeye</a>
+    <a href="#contact">Twandikire</a>
+  </nav>
+
+</header>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+  <h1>
+    Menyekanisha <span>ubucuruzi</span> bwawe
+    ku isi yose!
+  </h1>
+
+  <p>
+    Kwamamaza Online ni urubuga rugufasha kwamamaza
+    ibicuruzwa, serivisi n'ubucuruzi bwawe.
+    Shyira itangazo ryawe, umenyekane kandi
+    ugere ku bakiriya benshi.
+  </p>
+
+  <a href="#ads" class="btn">
+    Reba amatangazo
+  </a>
+
+  <a href="#post" class="btn btn-white">
+    Tanga itangazo
+  </a>
+
+</section>
+
+<!-- ADVERTISEMENTS -->
+
+<section id="ads">
+
+  <div class="section-title">
+
+    <h2>Amatangazo y'ubucuruzi</h2>
+
+    <p>
+      Reba ibicuruzwa na serivisi byamamaza
+      ubucuruzi bw'abantu.
+    </p>
+
+  </div>
+
+  <!-- SEARCH -->
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="search"
+      placeholder="Shakisha ibicuruzwa cyangwa serivisi..."
+    >
+
+    <button class="btn" onclick="searchAds()">
+      Shakisha
+    </button>
+
+  </div>
+
+  <!-- CATEGORIES -->
+
+  <div class="categories">
+
+    <button class="category active"
+      onclick="filterAds('all', this)">
+      Byose
+    </button>
+
+    <button class="category"
+      onclick="filterAds('Imyenda', this)">
+      Imyenda
+    </button>
+
+    <button class="category"
+      onclick="filterAds('Ibikoresho', this)">
+      Ibikoresho
+    </button>
+
+    <button class="category"
+      onclick="filterAds('Serivisi', this)">
+      Serivisi
+    </button>
+
+    <button class="category"
+      onclick="filterAds('Amazu', this)">
+      Amazu
+    </button>
+
+  </div>
+
+  <!-- AD CARDS -->
+
+  <div class="ads-grid" id="adsGrid">
+
+    <div class="ad-card"
+      data-category="Imyenda"
+      data-search="imyenda inkweto fashion">
+
+      <div class="ad-image">👕</div>
+
+      <div class="ad-content">
+
+        <div class="ad-category">IMYENDA</div>
+
+        <h3>Kwamamaza Imyenda</h3>
+
+        <p>
+          Menyekanisha imyenda n'inkweto
+          by'ubucuruzi bwawe.
+        </p>
+
+        <div class="ad-price">
+          Igiciro: Kumenyesha
+        </div>
+
+        <a href="#post">Tanga itangazo</a>
+
+      </div>
+
+    </div>
+
+    <div class="ad-card"
+      data-category="Ibikoresho"
+      data-search="telefoni mudasobwa electronics">
+
+      <div class="ad-image">📱</div>
+
+      <div class="ad-content">
+
+        <div class="ad-category">IBIKORESHO</div>
+
+        <h3>Ibikoresho by'ikoranabuhanga</h3>
+
+        <p>
+          Tangaza telefoni, mudasobwa
+          n'ibikoresho bitandukanye.
+        </p>
+
+        <div class="ad-price">
+          Igiciro: Kumenyesha
+        </div>
+
+        <a href="#post">Tanga itangazo</a>
+
+      </div>
+
+    </div>
+
+    <div class="ad-card"
+      data-category="Serivisi"
+      data-search="serivisi ubucuruzi marketing">
+
+      <div class="ad-image">💼</div>
+
+      <div class="ad-content">
+
+        <div class="ad-category">SERIVISI</div>
+
+        <h3>Kwamamaza Serivisi</h3>
+
+        <p>
+          Menyekanisha serivisi zawe
+          ku bantu bashaka ibyo ukora.
+        </p>
+
+        <div class="ad-price">
+          Igiciro: Kumenyesha
+        </div>
+
+        <a href="#post">Tanga itangazo</a>
+
+      </div>
+
+    </div>
+
+    <div class="ad-card"
+      data-category="Amazu"
+      data-search="inzu ubutaka ibibanza">
+
+      <div class="ad-image">🏠</div>
+
+      <div class="ad-content">
+
+        <div class="ad-category">AMAZU</div>
+
+        <h3>Kwamamaza Amazu</h3>
+
+        <p>
+          Tangaza amazu, ubutaka
+          n'ibibanza byo kugurisha cyangwa gukodesha.
+        </p>
+
+        <div class="ad-price">
+          Igiciro: Kumenyesha
+        </div>
+
+        <a href="#post">Tanga itangazo</a>
+
+      </div>
+
+    </div>
+
+    <div class="ad-card"
+      data-category="Ibikoresho"
+      data-search="ibikoresho furniture furniture">
+
+      <div class="ad-image">🛋️</div>
+
+      <div class="ad-content">
+
+        <div class="ad-category">IBIKORESHO</div>
+
+        <h3>Ibikoresho byo mu rugo</h3>
+
+        <p>
+          Menyekanisha ibikoresho byo mu rugo
+          n'ibikoresho by'ubucuruzi.
+        </p>
+
+        <div class="ad-price">
+          Igiciro: Kumenyesha
+        </div>
+
+        <a href="#post">Tanga itangazo</a>
+
+      </div>
+
+    </div>
+
+    <div class="ad-card"
+      data-category="Serivisi"
+      data-search="akazi ubucuruzi service">
+
+      <div class="ad-image">📢</div>
+
+      <div class="ad-content">
+
+        <div class="ad-category">UBUCURUZI</div>
+
+        <h3>Kwamamaza Ubucuruzi</h3>
+
+        <p>
+          Shyira ubucuruzi bwawe ku rubuga
+          kugira ngo abantu babumenye.
+        </p>
+
+        <div class="ad-price">
+          Igiciro: Kumenyesha
+        </div>
+
+        <a href="#post">Tanga itangazo</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="empty" id="empty">
+    Nta matangazo ahuye n'ibyo washakishije.
+  </div>
+
+</section>
+
+<!-- POST AD -->
+
+<section class="form-section" id="post">
+
+  <div class="section-title">
+
+    <h2>Tanga itangazo ryawe</h2>
+
+    <p>
+      Uzuza amakuru y'ubucuruzi bwawe.
+    </p>
+
+  </div>
+
+  <div class="form-container">
+
+    <form id="adForm">
+
+      <label for="business">
+        Izina ry'ubucuruzi
+      </label>
+
+      <input
+        type="text"
+        id="business"
+        placeholder="Urugero: Business yanjye"
+        required
+      >
+
+      <label for="title">
+        Umutwe w'itangazo
+      </label>
+
+      <input
+        type="text"
+        id="title"
+        placeholder="Urugero: Imyenda mishya"
+        required
+      >
+
+      <label for="category">
+        Icyiciro
+      </label>
+
+      <select id="category" required>
+
+        <option value="">Hitamo icyiciro</option>
+
+        <option>Imyenda</option>
+
+        <option>Ibikoresho</option>
+
+        <option>Serivisi</option>
+
+        <option>Amazu</option>
+
+        <option>Ibindi</option>
+
+      </select>
+
+      <label for="description">
+        Ibisobanuro
+      </label>
+
+      <textarea
+        id="description"
+        placeholder="Sobanura ibicuruzwa cyangwa serivisi byawe..."
+        required
+      ></textarea>
+
+      <label for="price">
+        Igiciro (RWF)
+      </label>
+
+      <input
+        type="number"
+        id="price"
+        min="0"
+        placeholder="Andika igiciro"
+      >
+
+      <label for="phone">
+        Numero ya telefone / WhatsApp
+      </label>
+
+      <input
+        type="tel"
+        id="phone"
+        placeholder="2507XXXXXXXX"
+        required
+      >
+
+      <button type="submit" class="btn">
+        Tangaza kuri WhatsApp
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <div class="section-title">
+
+    <h2>Ibitwerekeye</h2>
+
+  </div>
+
+  <p>
+    Kwamamaza Online ni urubuga rugamije gufasha
+    abantu kumenyekanisha ubucuruzi bwabo.
+    Twifuza guhuza abacuruzi n'abakiriya,
+    koroshya kubona ibicuruzwa na serivisi
+    no guteza imbere ubucuruzi.
+  </p>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <div class="section-title">
+
+    <h2>Twandikire</h2>
+
+    <p>
+      Ufite ikibazo cyangwa ushaka kumenyekanisha
+      ubucuruzi bwawe? Twandikire.
+    </p>
+
+  </div>
+
+  <p>📱 WhatsApp: +250 796252204</p>
+
+  <p>📧 Email: diveuno2008@gmail.com</p>
+
+  <a
+    href="https://wa.me/250796252204"
+    class="btn"
+    target="_blank"
+    rel="noopener">
+    Twandikire kuri WhatsApp
+  </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+    © <span id="year"></span>
+    Kwamamaza Online.
+    Uburenganzira bwose burabitswe.
+    <hr>
+    <h1 style="color: #38bdf8;">Divin IMANIRIKUMWENATWE</h1>
+  </p>
+
+</footer>
+
+<script>
+
+// YEAR
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+// SEARCH ADS
+
+function searchAds() {
+
+  const searchValue =
+    document.getElementById("search")
+      .value.toLowerCase();
+
+  const cards =
+    document.querySelectorAll(".ad-card");
+
+  let count = 0;
+
+  cards.forEach(function(card) {
+
+    const text =
+      card.innerText.toLowerCase();
+
+    const keywords =
+      card.dataset.search.toLowerCase();
+
+    const match =
+      text.includes(searchValue) ||
+      keywords.includes(searchValue);
+
+    card.style.display = match ? "block" : "none";
+
+    if (match) count++;
+
+  });
+
+  document.getElementById("empty").style.display =
+    count === 0 ? "block" : "none";
+
+}
+
+// FILTER ADS
+
+function filterAds(category, button) {
+
+  const cards =
+    document.querySelectorAll(".ad-card");
+
+  let count = 0;
+
+  cards.forEach(function(card) {
+
+    const match =
+      category === "all" ||
+      card.dataset.category === category;
+
+    card.style.display = match ? "block" : "none";
+
+    if (match) count++;
+
+  });
+
+  document.querySelectorAll(".category")
+    .forEach(function(btn) {
+
+      btn.classList.remove("active");
+
+    });
+
+  button.classList.add("active");
+
+  document.getElementById("empty").style.display =
+    count === 0 ? "block" : "none";
+
+}
+
+// SUBMIT AD TO WHATSAPP
+
+document.getElementById("adForm")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const business =
+      document.getElementById("business").value;
+
+    const title =
+      document.getElementById("title").value;
+
+    const category =
+      document.getElementById("category").value;
+
+    const description =
+      document.getElementById("description").value;
+
+    const price =
+      document.getElementById("price").value;
+
+    const phone =
+      document.getElementById("phone").value;
+
+    const message =
+      "ITANGAZO RISHYA - KWAMAMAZA ONLINE\n\n" +
+      "Business: " + business + "\n" +
+      "Umutwe: " + title + "\n" +
+      "Icyiciro: " + category + "\n" +
+      "Ibisobanuro: " + description + "\n" +
+      "Igiciro: " + (price || "Kumenyesha") +
+      " RWF\n" +
+      "Telefone: " + phone;
+
+    // Shyiramo numero ya WhatsApp yawe
+    const whatsappNumber = "250796252204";
+
+    const url =
+      "https://wa.me/" +
+      whatsappNumber +
+      "?text=" +
+      encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+  });
+
+</script>
+
+</body>
+</html>
